@@ -1,5 +1,4 @@
-tk
-waitress
+
 pyautogui
 pillow
 google-genai
@@ -13,3 +12,5 @@ pymongo
 flask 
 python-dotenv 
 google-genai 
+google-generativeai
+
