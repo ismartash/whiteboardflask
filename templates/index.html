@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Whiteboard</title>
+    <link href="../static/css/styles.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+    <div class="flex flex-col md:flex-row min-h-screen">
+        <!-- Toolbar -->
+        <div class="w-full md:w-16 bg-white shadow-lg p-2 md:p-4 flex md:flex-col justify-between md:justify-start items-center gap-2">
+            <div class="color-picker flex md:flex-col gap-2">
+                <div class="color-option bg-black" data-color="black"></div>
+                <div class="color-option bg-red-500" data-color="red"></div>
+                <div class="color-option bg-blue-500" data-color="blue"></div>
+                <div class="color-option bg-green-500" data-color="green"></div>
+            </div>
+            <div class="flex md:flex-col gap-2">
+                <button id="penTool" class="w-10 h-10 p-2 bg-gray-200 rounded hover:bg-gray-300">
+                    ✏️
+                </button>
+                <button id="eraserTool" class="w-10 h-10 p-2 bg-gray-200 rounded hover:bg-gray-300">
+                    🧹
+                </button>
+                <button id="rectangleTool" class="w-10 h-10 p-2 bg-gray-200 rounded hover:bg-gray-300">
+                    □
+                </button>
+                <label class="w-10 h-10 p-2 bg-gray-200 rounded hover:bg-gray-300 cursor-pointer flex items-center justify-center">
+                    📄
+                    <input type="file" id="pdfUpload" accept=".pdf" class="hidden">
+                </label>
+            </div>
+            
+            <div class="w-full md:w-auto">
+                <input type="range" id="penThickness" min="1" max="50" value="2" class="w-20 md:w-auto">
+            </div>
+        </div>
+
+        <!-- Main Canvas Area -->
+        <div class="flex-1 p-4 relative">
+            <canvas id="canvas" class="bg-white shadow-lg rounded-lg"></canvas>
+            
+            <!-- Bottom Toolbar -->
+            <div class="flex gap-2 mt-4">
+                <button class="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600" id="clear">
+                    Clear Screen
+                </button>
+                <button class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600" id="askDoubt">
+                    Ask Doubt ✋
+                </button>
+                <button class="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600" id="chatbot">
+                    Chat Assistant 💬
+                </button>
+                <button class="px-4 py-2 bg-yellow-500 text-white rounded hover:bg-yellow-600" id="prevPage">
+                    Previous Page
+                </button>
+                <button class="px-4 py-2 bg-yellow-500 text-white rounded hover:bg-yellow-600" id="nextPage">
+                    Next Page
+                </button>
+            </div>
+        </div>
+
+        <!-- Chat Interface -->
+        <div id="chatContainer" class="chat-container bg-white shadow-lg rounded-lg">
+            <div class="p-4 bg-blue-500 text-white flex justify-between items-center">
+                <h3 class="font-bold">Chat Assistant</h3>
+                <button id="closeChat" class="text-white">&times;</button>
+            </div>
+            <div class="p-4">
+                <div id="chatOutput" class="h-80 overflow-y-auto mb-4 p-2 bg-gray-50 rounded"></div>
+                <input type="text" id="chatInput" class="w-full p-2 border rounded mb-2" placeholder="Type your message...">
+                <button id="sendChat" class="w-full p-2 bg-blue-500 text-white rounded hover:bg-blue-600">Send</button>
+            </div>
+        </div>
+
+        <!-- Visual Assistant Interface -->
+        <div id="visualAssistantContainer" class="visual-assistant-container bg-white shadow-lg rounded-lg">
+            <div class="p-4 bg-purple-500 text-white flex justify-between items-center">
+                <h3 class="font-bold">Visual Assistant</h3>
+                <button id="closeVisualAssistant" class="text-white">&times;</button>
+            </div>
+            <div class="p-4">
+                <div id="visualAssistantOutput" class="h-80 overflow-y-auto mb-4 p-2 bg-gray-50 rounded whitespace-pre-line"></div>
+                <input type="text" id="visualAssistantInput" class="w-full p-2 border rounded mb-2" placeholder="Ask about the whiteboard...">
+                <button id="sendVisualQuery" class="w-full p-2 bg-purple-500 text-white rounded hover:bg-purple-600">Send Query</button>
+            </div>
+        </div>
+    </div>
+    <script src="../static/js/script.js"></script>
+</body>
+</html>

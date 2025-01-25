@@ -1,0 +1,41 @@
+
+    .color-picker {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        padding: 8px;
+    }
+    .color-option {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+    .tool-active {
+        background-color: #e5e7eb;
+    }
+    .chat-container, .visual-assistant-container {
+        display: none;
+        position: fixed;
+        right: 20px;
+        top: 100px;
+        width: 300px;
+        z-index: 1000;
+    }
+    #canvas {
+        width: 100%;
+        height: calc(100vh - 120px);
+    }
+    @media (max-width: 640px) {
+        #canvas {
+            height: calc(100vh - 200px);
+        }
+    }
+    .draggable {
+        position: absolute;
+        cursor: move;
+    }
+    #penThickness {
+        width: 80px;
+    }
+    
