@@ -147,7 +147,3 @@ def upload_pdf():
 
 if __name__ == '__main__':
     app.run(debug=True)
-else:
-    # For production, Render will use Waitress
-    from waitress import serve
-    serve(app, host="0.0.0.0", port=int(os.environ.get("PORT", 8080)))
