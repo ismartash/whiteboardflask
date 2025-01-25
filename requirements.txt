@@ -1,6 +1,7 @@
 
 pyautogui
 pillow
+gunicorn
 google-genai
 langchain
 langchain-groq
